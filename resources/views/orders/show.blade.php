@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="space-y-6">
-        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="glass-card border border-slate-200/70 p-6">
             <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                     <p class="text-xs font-semibold uppercase text-slate-500">Pedido de vendas</p>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="glass-card border border-slate-200/70 p-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-slate-900">Itens do pedido</h2>
                 <p class="text-sm text-slate-500">{{ $order->items->count() }} itens</p>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="glass-card border border-slate-200/70 p-6">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-slate-900">Parcelas / Contas a receber</h2>
                 <a href="{{ route('payments.index') }}" class="text-sm font-semibold text-indigo-600 hover:underline">Ver todas</a>

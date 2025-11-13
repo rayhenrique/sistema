@@ -9,6 +9,7 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
+        $user = $request->user();
         $orders = Order::query()
             ->with(['customer', 'payments'])
             ->when($request->filled('status'), fn ($query) => $query->where('status', $request->status))
@@ -25,6 +26,8 @@ class OrderController extends Controller
 
         return view('orders.index', [
             'orders' => $orders,
+            'currentRegister' => $user->cashRegisters()->open()->latest()->first(),
+            'lastClosedRegister' => $user->cashRegisters()->where('status', 'closed')->latest('closed_at')->first(),
         ]);
     }
 

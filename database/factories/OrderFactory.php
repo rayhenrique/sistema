@@ -25,6 +25,7 @@ class OrderFactory extends Factory
         return [
             'code' => strtoupper($this->faker->bothify('PED-#####')),
             'customer_id' => Customer::factory(),
+            'channel' => 'erp',
             'status' => $status,
             'shipping_status' => $status === 'shipped' ? 'in_transit' : 'pending',
             'payment_status' => $this->faker->randomElement(['pending', 'partial', 'paid', 'overdue']),
